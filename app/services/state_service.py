@@ -59,6 +59,7 @@ class StateHandler:
         self, user: User, message_info: dict, user_message: Message
     ) -> JSONResponse:
         message_type = get_valid_message_type(message_info)
+        self.logger.info(f"Received a request message of type: {message_type}")
         match message_type:
             case ValidMessageType.SETTINGS_FLOW_SELECTION:
                 return await messaging_client.handle_settings_selection(

@@ -76,7 +76,7 @@ async def async_llm_request(
             logger.info(
                 f"Number of OpenAI-equivalent tokens in the payload:\n{num_tokens_from_messages(messages)}"
             )
-
+        logger.info(f"Making request to LLM API with parameters: {params}")
         completion = await llm_client.chat.completions.create(**params)
 
         return completion
